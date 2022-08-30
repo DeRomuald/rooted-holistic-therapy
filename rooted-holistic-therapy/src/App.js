@@ -1,25 +1,27 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import About from './components/pages/About';
 import Services from './components/pages/Services';
-import Media from './components/pages/Media.js'; 
+import Media from './components/pages/Media'; 
 import BookNow from './components/pages/BookNow'; 
-import Home from './components/pages/Home'
+import Home from './components/pages/Home';
+
+
 function App() {
   return (
     <>
-    <Router>
+    <BrowserRouter>
       <Navbar />
       <Routes>
-      <Route path='/' exact component={Home} />
-          <Route path='/about' component={About} />
-          <Route path='/services' component={Services} />
-          <Route path='/media' component={Media} />
-          <Route path='/book-now' component={BookNow} />
+      <Route path='/' exact element={<Home/>} />
+          <Route path='/about' element={<About/>} />
+          <Route path='/services' element={<Services/>} />
+          <Route path='/media' element={<Media/>} />
+          <Route path='/book-now' element={<BookNow/>} />
       </Routes>
-      </Router>
+      </BrowserRouter>
       </>
   );
 }
